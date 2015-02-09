@@ -1,0 +1,16 @@
+
+<%= form_for @location, class: "form-horizontal" do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :zipcode %>
+  <%= f.text_field :zipcode %>
+  <% if path = @location.new_record? %>
+  <%= f.submit "Create Location", class: "btn-info btn" %>
+  <% else %>
+  <%= f.submit "Update Location", class: "btn-info btn" %>
+  <%= link_to  "Delete", location_path(@location), class: "btn-danger btn", method: :delete, data:{confirm: 'Are you Sure?'}%>
+  <% end %>
+  <%= link_to "Cancel", locations_path(@locations), class: "btn-default btn" %>
+<% end %>

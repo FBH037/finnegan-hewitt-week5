@@ -1,0 +1,21 @@
+<h1 class = "page-header">Locations
+<a class = "btn btn-default pull-right btn-info" <%= link_to "New Location", new_location_path%>
+</h1>
+
+<table class = 'table-striped'>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Zipcode</th>
+  </tr>
+    <%@locations.each do |location|%>
+  <tr>
+    <td><%=location.name%></td>
+    <td><%=location.address%></td>
+    <td><%=location.zipcode%></td>
+    <td><%= link_to "Delete", location, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?'} %> </td>
+    <td><%= link_to "Edit", edit_location_path(location), class: 'btn btn-info'%> </td>
+    <td> Create Event</td>
+  </tr>
+    <% end %>
+</table>
