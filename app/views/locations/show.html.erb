@@ -1,9 +1,11 @@
 <h1 class = "page-header"> <%= "Events at #{@location.name}" %>
 <a class = "btn btn-info pull-right" <%= link_to "New Event", new_location_event_path(@location) %>
 </h1>
+
+<div> <%= link_to "Home Page", locations_path, class: "btn-info btn" %></div>
+
 <strong> Address: </strong><p><%= @location.address%></p>
 <strong> Zip Code:</strong><p><%= @location.zipcode%></p>
-
 
 
 <table class = 'table-striped'>
@@ -17,7 +19,10 @@
     <td> <%= link_to event.description, location_event_path(@location, event) %></td>
     <td> <%= event.date %></td>
     <td> <%= event.requires_id %></td>
-    <td> <%= link_to "Edit", edit_location_event_path(@location, event) %></td>
+    <td> <%= link_to "Edit", edit_location_event_path(@location, event), class: "btn btn-info" %></td>
+    <td> <%= link_to "Delete", location_event_path(@location, event), class: "btn btn-danger", method: :delete, data:{confirm: "Are you sure?"}  %></td>
+
+    <% end %>
   </tr>
-  <% end %>
+
 </table>
