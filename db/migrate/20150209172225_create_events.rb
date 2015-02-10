@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :description
       t.date :date
-      t.integer :requires_id
+      t.boolean :requires_id
       t.belongs_to :location, index: true
     end
     add_foreign_key :events, :locations

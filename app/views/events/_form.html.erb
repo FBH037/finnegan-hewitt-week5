@@ -1,0 +1,33 @@
+<%= form_for [@location, @event], html:{class: "form-horizontal"} do |f| %>
+  <form class="form-horizontal">
+    <div class= "form-group">
+      <%= f.label :description, class: "control-label form-controls col-md-2 "%>
+      <div class="form-controls col-md-4">
+        <%= f.text_field :description, class: "form-control col-md-4"%>
+      </div>
+    </div>
+    <div class= "form-group">
+      <%= f.label :date, class: "control-label form-controls col-md-2 "%>
+      <div class="form-controls col-md-4">
+        <%= f.date_field :date, class: "form-control col-md-4"%>
+      </div>
+    </div>
+    <div class= "form-group">
+      <%= f.label :requires_id, class: "control-label form-controls col-md-2 "%>
+      <div class="form-controls col-md-4">
+        <%= f.check_box :requires_id, class: " col-md-4"%>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class = "col-md-offset-2 col-md-4">
+    <% if path = @event.new_record? %>
+    <%= f.submit "Create", class: "btn btn-info" %>
+  <% else %>
+    <%= f.submit "Update", class: "btn btn-info" %>
+    <%= link_to "Delete", location_event_path(@location, @event), class: "btn-danger btn", method: :delete, data:{confirm:"Are you sure?"}%>
+  <% end %>
+  <%= link_to "Cancel", location_path(@location), class: "btn-default btn" %>
+</div>
+</div>
+</form>
+<% end %>
